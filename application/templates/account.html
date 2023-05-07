@@ -1,0 +1,68 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>account</title>-->
+<!--    <style>-->
+<!--     .navbar {-->
+<!--        background-color: #333;-->
+<!--        position: fixed;-->
+<!--        top: 0;-->
+<!--        left: 0;-->
+<!--        width: 100%;-->
+<!--        display: flex;-->
+<!--        justify-content: space-between;-->
+<!--        padding: 10px;-->
+<!--      }-->
+<!--      .navbar-brand {-->
+<!--        color: #fff;-->
+<!--        font-size: 1.5rem;-->
+<!--        margin-left: 10px;-->
+<!--      }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<nav class="navbar">-->
+<!--      <a class="navbar-brand" href="#">Account Details</a>-->
+<!--</nav>-->
+<!--<div>-->
+<!--    {{user}}-->
+<!--</div>-->
+<!--<div>{{name}}</div>-->
+
+<!--</body>-->
+
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Details</title>
+    <link rel="stylesheet" href="/static/css/account.css">
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="user-info">
+        <img src="{{image_file}}" alt="Profile Picture" />
+        <h2>{{name}}</h2>
+      </div>
+      <ul>
+        <li>
+          <label>Username:</label>
+          <span>{{current_user.username}}</span>
+        </li>
+        <li>
+          <label>Name:</label>
+          <span>{{current_user.name}}</span>
+        </li>
+<!--        <li>-->
+<!--          <label>Address:</label>-->
+<!--          <span>{{address}}</span>-->
+<!--        </li>-->
+      </ul>
+    </div>
+  </body>
+</html>

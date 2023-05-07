@@ -1,0 +1,76 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>search</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form method="post" action="">-->
+<!--    {{form.hidden_tag()}}-->
+<!--    <div>{{form.username}}</div>-->
+<!--    <p>{{form.submit}}</p>-->
+
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/search.css">
+
+</head>
+<body>
+<div class="container">
+    <h1 class="my-5 text-center">Search Users</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post" action="">
+                {{form.hidden_tag()}}
+                <div class="form-group">
+                    {{form.username.label(class_="font-weight-bold")}}
+                    {{form.username(class_="form-control", placeholder="Enter a username")}}
+                </div>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                    <ul class="flashes">
+                      {% for category, message in messages %}
+                        {% if category == 'error' %}
+                          <li class="flash flash-error">{{ message }}</li>
+                        {% elif category == 'warning' %}
+                          <li class="flash flash-warning">{{ message }}</li>
+                        {% elif category == 'info' %}
+                          <li class="flash flash-info">{{ message }}</li>
+                        {% elif category == 'success' %}
+                          <li class="flash flash-success">{{ message }}</li>
+                        {% else %}
+                          <li class="flash">{{ message }}</li>
+                        {% endif %}
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                {% endwith %}
+                <button type="submit" class="btn btn-primary btn-block">Search</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Add jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dLr
+        rxzQ5TOT0Adpcbb7Pl/6+nJw57"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

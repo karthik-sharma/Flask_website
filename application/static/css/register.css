@@ -1,0 +1,59 @@
+body {
+    background-color: #e6e6e6;
+    background-image: url('/static/profile_pics/register-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 10%;
+    }
+
+.container {
+    margin-top: 50px;
+}
+
+.card-header {
+    background-color: #1e90ff;
+    color: #fff;
+}
+
+.card-body {
+    background-color: #fff;
+}
+
+input.form-control {
+    border-radius: 20px;
+    box-shadow: none;
+    border: 2px solid #1e90ff;
+}
+
+button.btn-primary {
+    border-radius: 20px;
+    background-color: #1e90ff;
+    border-color: #1e90ff;
+}
+.flash {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.flash-error {
+  background-color: #ffcccc;
+  border-color: #ff3333;
+}
+
+.flash-warning {
+  background-color: #ffffcc;
+  border-color: #ff9933;
+}
+
+.flash-info {
+  background-color: #ccffff;
+  border-color: #33ccff;
+}
+
+.flash-success {
+  background-color: #ccffcc;
+  border-color: #33cc33;
+}
