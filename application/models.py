@@ -2,7 +2,7 @@ from flask_login import UserMixin
 from application import app, db
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField, IntegerField, SelectField
-from wtforms.validators import InputRequired, Length, Email
+from wtforms.validators import InputRequired, Length, Email, ValidationError
 from datetime import datetime
 
 

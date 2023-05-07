@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, flash, get_flashed_messages
 from sqlalchemy import desc
 from application import app, db
 from application.models import RegisterForm, LoginForm, ExpenseForm, User, ExpenseInfo, SearchForm
@@ -20,11 +20,17 @@ def home():
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data)
-        user = User(name=form.name.data, username=form.username.data, password=hashed_password)
-        db.session.add(user)
-        db.session.commit()
-        return redirect(url_for('login'))
+        user_check = User.query.filter_by(username=form.username.data).first()
+        print(user_check)
+        if not user_check:
+            hashed_password = bcrypt.generate_password_hash(form.password.data)
+            user = User(name=form.name.data, username=form.username.data, password=hashed_password)
+            db.session.add(user)
+            db.session.commit()
+            flash("Successfully Registered", 'success')
+            return redirect(url_for('login'))
+        else:
+            flash("username already exists, please try with new username", 'warning')
     return render_template('register.html', form=form)
 
 @app.route('/login', methods=['POST','GET'])
@@ -36,6 +42,10 @@ def login():
             if bcrypt.check_password_hash(user.password,form.password.data):
                 login_user(user)
                 return redirect(url_for('expense'))
+            else:
+                flash("Password incorrect", 'error')
+        else:
+            flash("Incorrect username", 'error')
     return render_template('login.html', form=form)
 
 @app.route('/expense', methods=['POST','GET'])
@@ -61,6 +71,9 @@ def dashboard():
 def search():
     form = SearchForm()
     if form.validate_on_submit():
+        user = User.query.filter_by(username=form.username.data).first()
+        if not user:
+            flash("Incorrect username! user doesn't exist", 'error')
         info = ExpenseInfo.query.filter_by(username=form.username.data).all()
         if info:
             sums = ExpenseInfo.query.filter_by(username=form.username.data).order_by(desc(ExpenseInfo.date))

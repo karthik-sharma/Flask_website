@@ -31,6 +31,7 @@
 <body>
     <h1>Login Form</h1>
     <br>
+
     <form method="post" action="">
         {{form.hidden_tag()}}
         <label for="username">Username:</label>
@@ -38,6 +39,25 @@
 
         <label for="password">Password:</label>
         <input type="password" placeholder="Enter Password" name="password" required>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flashes">
+              {% for category, message in messages %}
+                {% if category == 'error' %}
+                  <li class="flash flash-error">{{ message }}</li>
+                {% elif category == 'warning' %}
+                  <li class="flash flash-warning">{{ message }}</li>
+                {% elif category == 'info' %}
+                  <li class="flash flash-info">{{ message }}</li>
+                {% elif category == 'success' %}
+                  <li class="flash flash-success">{{ message }}</li>
+                {% else %}
+                  <li class="flash">{{ message }}</li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
 
         <input type="submit" value="Login">
     </form>
