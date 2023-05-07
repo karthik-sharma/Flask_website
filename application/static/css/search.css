@@ -67,3 +67,31 @@ button[type="submit"]:hover {
     background-color: #f2f2f2;
     color: #333;
 }
+
+.flash {
+  background-color: red;
+  color: white;
+  padding: 10px;
+}
+}
+
+.flash-error {
+  background-color: red;
+  color: black;
+  padding: 10px;
+}
+
+.flash-warning {
+  background-color: #ffffcc;
+  border-color: #ff9933;
+}
+
+.flash-info {
+  background-color: #ccffff;
+  border-color: #33ccff;
+}
+
+.flash-success {
+  background-color: #ccffcc;
+  border-color: #33cc33;
+}
