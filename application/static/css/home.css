@@ -1,0 +1,36 @@
+body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+        /* Background image */
+        background-image: url("/static/profile_pics/home-background.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center 20%;
+    }
+
+    .container {
+        margin-top: 50px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0069d9;
+        border-color: #0062cc;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+    }
+h1 {
+  color: red;
+}

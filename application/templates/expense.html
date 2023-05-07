@@ -1,0 +1,49 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Expense</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>EXPENSE FORM</h1>-->
+<!--<br>-->
+<!--<form method="post" action="">-->
+<!--    {{form.hidden_tag()}}-->
+<!--    <p>{{form.amount.label}}</p>-->
+<!--    <div>{{form.amount}}</div>-->
+<!--    <br>-->
+<!--    <p>{{form.category.label}}</p>-->
+<!--    <div>{{form.category}}</div>-->
+<!--    <br>-->
+<!--    <p>{{form.submit}}</p>-->
+
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expense</title>
+    <link rel="stylesheet" href="/static/css/expense.css">
+
+</head>
+<body>
+    <h1>EXPENSE FORM</h1>
+    <br>
+    <form method="post" action="">
+        {{form.hidden_tag()}}
+        <label for="{{form.amount.id}}">{{form.amount.label}}</label>
+        <input type="text" id="{{form.amount.id}}" name="{{form.amount.name}}" value="{{form.amount.data}}">
+        <label for="{{form.category.id}}">{{form.category.label}}</label>
+        <select id="{{form.category.id}}" name="{{form.category.name}}">
+            {% for category in form.category.choices %}
+            <option value="{{category[0]}}" {% if category[0] == form.category.data %}selected{% endif %}>{{category[1]}}</option>
+            {% endfor %}
+        </select>
+        <br>
+        {{form.submit}}
+    </form>
+</body>
+</html>
